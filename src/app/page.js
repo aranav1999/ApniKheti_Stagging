@@ -40,7 +40,7 @@ const Home = () => {
     // setProductList2(list);
     setSearchHistory(uniqueHisory);
 
-    //  setSearchHistory((prevHistory) => [query, ...prevHistory.slice(0, 4)]); // Store up to 5 recent searches.
+      //setSearchHistory((prevHistory) => [query, ...prevHistory.slice(0, 4)]); // Store up to 5 recent searches.
   };
 
   const handleSubmit = (e) => {
@@ -78,9 +78,9 @@ const Home = () => {
           </ul>
         </div>
 
-        <div className="w-1/4">
+        <div className="w-1/4" >
           {/* for search bar */}
-          <form className="p-2 m-2" onSubmit={handleSubmit}>
+          <form className="p-2 m-2" onSubmit={handleSubmit}  >
             <input
               placeholder="Search"
               className="border bg-slate-200 p-1 rounded-xl transform focus:scale-110 transition duration-300"
@@ -92,14 +92,13 @@ const Home = () => {
               onClick={(e) => {
                 setShowHistory(true);
               }}
-              onBlur={() => setShowHistory(false)} // Hide search history dropdown on blur.
-            />
+            />  
             <button className="ml-5 transform transition duration-300 hover:scale-125">
               <SearchOutlined className="text-xl" />
             </button>
           </form>
           {showHistory && (
-            <div className="search-history absolute border rounded-xl bg-slate-100 shadow-xl z-10">
+            <div className="search-history absolute border rounded-xl bg-slate-100 shadow-xl z-10" >
               <ul>
                 {searchHistory.map((item, index) => (
                   <button className="flex text-left">
@@ -110,11 +109,12 @@ const Home = () => {
                         setShowHistory(false); // Hide the dropdown.
                       }}
                       className="border-b-2 transition duration-200 m-1  px-2 hover:border-green-500 w-60 text-ellipsis overflow-hidden "
+                      
                     >
                       {item}
                     </li>
                     <span className="pr-2">
-                      <button title={index} onClick={handleDelete}>
+                      <button title={index} onClick={handleDelete} >
                         {<CloseCircleTwoTone />}
                       </button>
                     </span>
